@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctrl="clr-namespace:Alpenhorn.Screens.Controls;assembly=Alpenhorn"
+             x:Class="Alpenhorn.Screens.BeaconNotificationScreen" BackgroundColor="White">
+  <ListView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+            x:Name="messageBox" HasUnevenRows="true" ItemsSource="{Binding ChatItems}">
+    <x:Arguments>
+      <ListViewCachingStrategy>RecycleElement</ListViewCachingStrategy>
+    </x:Arguments>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ctrl:ChatItemViewCell/>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+</ContentPage>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Alpenhorn.Screens.Controls.ChatItemAnswerView">
+  <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Center" Padding="5">
+    <Grid.Resources>
+      <ResourceDictionary>
+        <Style TargetType="Button">
+          <Setter Property="BorderWidth" Value="1" />
+          <Setter Property="BorderColor" Value="#3b5998" />
+          <Setter Property="BackgroundColor" Value="White" />
+          <Setter Property="TextColor" Value="Black" />
+          <Setter Property="FontSize" Value="14" />
+          <Setter Property="WidthRequest" Value="85" />
+        </Style>
+      </ResourceDictionary>
+    </Grid.Resources>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="1*"/>
+      <ColumnDefinition Width="5*"/>
+    </Grid.ColumnDefinitions>
+    <StackLayout Grid.Column="1" Orientation="Horizontal" Spacing="0" HorizontalOptions="End">
+      <Frame BackgroundColor="#e1efff" Padding="10">
+        <StackLayout>
+          <StackLayout Orientation="Horizontal" Spacing="15" x:Name="buttonContainer">
+            <Button Text="No" Image="no.png" Command="{Binding DeclineCommand}">
+              <Button.CommandParameter>
+                <x:Boolean>false</x:Boolean>
+              </Button.CommandParameter>
+            </Button>
+            <Button Text="Yes" Image="yes.png" Command="{Binding AcceptCommand}">
+              <Button.CommandParameter>
+                <x:Boolean>true</x:Boolean>
+              </Button.CommandParameter>
+            </Button>
+          </StackLayout>
+          <Label x:Name="answer" Font="16" TextColor="Black"/>
+        </StackLayout>
+      </Frame>
+      <RelativeLayout WidthRequest="24" HeightRequest="24" VerticalOptions="End" HorizontalOptions="Start">
+        <Image Source="right_tail.png" WidthRequest="24" HeightRequest="24"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=-1}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=24}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, Constant=24}"/>
+      </RelativeLayout>
+    </StackLayout>
+  </Grid>
+</ContentView>
